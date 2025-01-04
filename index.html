@@ -93,8 +93,19 @@
         <div class="container text-center">
             <h6 class="subtitle">Portfolio</h6>
             <h6 class="section-title mb-4">My Project</h6>
+    
+            <!-- Filter Buttons -->
+            <div class="filter-buttons mb-4">
+                <button class="btn btn-primary mx-1" onclick="filterProjects('all')">All</button>
+                <button class="btn btn-secondary mx-1" onclick="filterProjects('login')">Login</button>
+                <button class="btn btn-secondary mx-1" onclick="filterProjects('calculator')">Calculator</button>
+                <button class="btn btn-secondary mx-1" onclick="filterProjects('game')">Game</button>
+                <button class="btn btn-secondary mx-1" onclick="filterProjects('dashboard')">Dashboard</button>
+            </div>
+    
             <div class="row">
-                <div class="col-sm-4">
+                <!-- Login Project -->
+                <div class="col-sm-4 project-card" data-category="login">
                     <div class="img-wrapper">
                         <img src="assets/imgs/gambar-login.png" alt="">
                         <div class="overlay">
@@ -105,7 +116,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4">
+                <!-- Calculator Project -->
+                <div class="col-sm-4 project-card" data-category="calculator">
                     <div class="img-wrapper">
                         <img src="assets/imgs/gambar-kalkulator.png" alt="">
                         <div class="overlay">
@@ -116,7 +128,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-4">
+                <!-- Game Tetris Project -->
+                <div class="col-sm-4 project-card" data-category="game">
                     <div class="img-wrapper">
                         <img src="assets/imgs/gambar-tetris.png" alt="">
                         <div class="overlay">
@@ -127,7 +140,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 p-0">
+                <!-- Diagram Project -->
+                <div class="col-12 p-0 project-card" data-category="dashboard">
                     <div class="img-wrapper position-relative">
                         <img src="assets/imgs/gambar-diagram.png" alt="">
                         <div class="overlay">
@@ -138,7 +152,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 p-0">
+                <!-- Dashboard Project -->
+                <div class="col-12 p-0 project-card" data-category="dashboard">
                     <div class="img-wrapper position-relative">
                         <img src="assets/imgs/dashboad.png" alt="">
                         <div class="overlay">
@@ -150,7 +165,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </section>
     <!-- End of portfolio section -->
@@ -265,6 +279,19 @@
             });
         }
     </script>
+
+<script>
+    function filterProjects(category) {
+        const projects = document.querySelectorAll('.project-card');
+        projects.forEach(project => {
+            if (category === 'all' || project.getAttribute('data-category') === category) {
+                project.style.display = 'block';
+            } else {
+                project.style.display = 'none';
+            }
+        });
+    }
+</script>
 
 </body>
 </html>
