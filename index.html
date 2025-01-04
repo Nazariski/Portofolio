@@ -156,12 +156,19 @@
     <!-- End of portfolio section -->
 
 
-    <!-- Blog Section -->
     <section id="blog" class="section">
         <div class="container text-center">
             <h6 class="section-title mb-4">My Certificated</h6>
+            
+            <!-- Filter Buttons -->
+            <div class="filter-buttons mb-4">
+                <button class="btn btn-primary mx-1" onclick="filterCertificates('all')">All</button>
+                <button class="btn btn-secondary mx-1" onclick="filterCertificates('sololearn')">Sololearn</button>
+            </div>
+            
             <div class="row text-left">
-                <div class="col-md-4">
+                <!-- AWS Certificate -->
+                <div class="col-md-4 certificate-card" data-category="other">
                     <div class="card border mb-4">
                         <img src="assets/imgs/dicoding.png" alt="" class="card-img-top w-100">
                         <div class="card-body">
@@ -169,7 +176,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <!-- Google Cybersecurity -->
+                <div class="col-md-4 certificate-card" data-category="other">
                     <div class="card border mb-4">
                         <img src="assets/imgs/gambar-google.png" alt="" class="card-img-top w-100">
                         <div class="card-body">
@@ -177,15 +185,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card border mb-4">
-                        <img src="assets/imgs/gambar-google2.png" alt="" class="card-img-top w-100">
-                        <div class="card-body">
-                            <a class="card-title" href="https://www.coursera.org/account/accomplishments/verify/39RHUTQXI3VH">Connect and Protect: Networks and Network Security</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
+                <!-- Sololearn HTML -->
+                <div class="col-md-4 certificate-card" data-category="sololearn">
                     <div class="card border mb-4">
                         <img src="assets/imgs/intro-html.png" alt="" class="card-img-top w-100">
                         <div class="card-body">
@@ -193,7 +194,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <!-- Sololearn CSS -->
+                <div class="col-md-4 certificate-card" data-category="sololearn">
                     <div class="card border mb-4">
                         <img src="assets/imgs/intro-css.png" alt="" class="card-img-top w-100">
                         <div class="card-body">
@@ -201,41 +203,38 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <!-- Sololearn JavaScript -->
+                <div class="col-md-4 certificate-card" data-category="sololearn">
                     <div class="card border mb-4">
                         <img src="assets/imgs/intro-js.png" alt="" class="card-img-top w-100">
                         <div class="card-body">
-                            <a class="card-title" href="https://www.sololearn.com/certificates/CC-YDJMWTJW">Sololearn : Introduction Javascript</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card border mb-4">
-                        <img src="assets/imgs/inter-js.png" alt="" class="card-img-top w-100">
-                        <div class="card-body">
-                            <a class="card-title" href="https://www.sololearn.com/certificates/CC-SCLMN1B0">Sololearn : Intermediate Javascript</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card border mb-4">
-                        <img src="assets/imgs/Linux.png" alt="" class="card-img-top w-100">
-                        <div class="card-body">
-                            <a class="card-title" href="https://www.coursera.org/account/accomplishments/verify/GAEKKE3K9ZAF">Tools of the Trade: Linux and SQL</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card border mb-4">
-                        <img src="assets/imgs/cloud.png" alt="" class="card-img-top w-100">
-                        <div class="card-body">
-                            <a class="card-title" href="https://digitalent.komdigi.go.id/cek-sertifikat">Google Cloud Fundamental</a>
+                            <a class="card-title" href="https://www.sololearn.com/certificates/CC-YDJMWTJW">Sololearn : Introduction JavaScript</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Maps Section -->
+<section id="map" class="section">
+    <div class="container text-center">
+        <h6 class="section-title mb-4">Find Me Here</h6>
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31722.94905057269!2d106.65342377431642!3d-6.346287899999993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69e5a6e26dc3cd%3A0xccd6344b8021119d!2sUniversitas%20Pamulang%20Kampus%202%20(UNPAM%20Viktor)!5e0!3m2!1sid!2sid!4v1735964679062!5m2!1sid!2sid"
+                width="100%" 
+                height="450" 
+                frameborder="0" 
+                style="border:0;" 
+                allowfullscreen="" 
+                aria-hidden="false" 
+                tabindex="0">
+            </iframe>
+        </div>
+    </div>
+</section>
+
 
     <!-- Page Footer -->
     <footer class="page-footer">
@@ -257,6 +256,19 @@
 
     <!-- steller js -->
     <script src="assets/js/steller.js"></script>
+
+    <script>
+        function filterCertificates(category) {
+            const cards = document.querySelectorAll('.certificate-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
 
 </body>
 </html>
